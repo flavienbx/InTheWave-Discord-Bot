@@ -5,7 +5,7 @@ from discord.ext import commands
 from discord import Client, Intents, Embed
 from discord_components import Button, Select, SelectOption, ComponentsBot, ButtonStyle
 
-bot = ComponentsBot("¤")
+bot = ComponentsBot("!")
 bot.remove_command("help")
 
 @bot.event
