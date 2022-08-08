@@ -179,36 +179,6 @@ async def on_button_click(interaction):
             await interaction.respond(content=f"Veuillez expliquer votre demande de partenariat de la façon la plus détaillée possible l'équipe de modération traitera votre ticket au plus vite !")
         elif ((f"{interaction.values[0]}") == "autre"):
             await interaction.respond(content=f"Veuillez précisé de la raison de votre ticket le plus en détail possible pour que le support puisse agir au plus vite.")
-        elif ((f"{interaction.values[0]}") == "probleme_offre"):
-            created_em = discord.Embed(title="Ticket", description="Veuillez choisir l'offre avec le quelle vous rencontrez un problème.", color=0x00a8ff)
-            await ticket_channel.send(embed=created_em, components=[Select(placeholder="Veuillez choisir l'offre", options=[SelectOption(label="Web", value="web_bug", emoji="🌐"), SelectOption(label="Minecraft", value="minecraft_bug", emoji="🎮"), SelectOption(label="Discord Bot", value="discord_bug", emoji="💻"), SelectOption(label="VPS", value="vps_bug", emoji=bot.get_emoji(903249150991298582))], custom_id="select_bug_etape_2",)],)
-            interaction = await bot.wait_for(
-                "select_option", check=lambda inter: inter.custom_id == "select_bug_etape_2"
-            )
-            if ((f"{interaction.values[0]}") == "web_bug"):
-                created_em = discord.Embed(title="Résumé du ticket", description="Bug : Web Hosting", color=0x00a8ff)
-            elif ((f"{interaction.values[0]}") == "minecraft_bug"):
-                created_em = discord.Embed(title="Résumé du ticket", description="Bug : Minecraft Serveur", color=0x00a8ff)
-            elif ((f"{interaction.values[0]}") == "discord_bug"):
-                created_em = discord.Embed(title="Résumé du ticket", description="Bug : Discord Serveur", color=0x00a8ff)
-            elif ((f"{interaction.values[0]}") == "vps_bug"):
-                created_em = discord.Embed(title="Résumé du ticket", description="Bug : VPS", color=0x00a8ff)
-            await ticket_channel.send(embed=created_em)
-        elif ((f"{interaction.values[0]}") == "information_offre"):
-            created_em = discord.Embed(title="Ticket", description="Veuillez choisir l'offre avec le quelle vous voulez des informations.", color=0x00a8ff)
-            await ticket_channel.send(embed=created_em, components=[Select(placeholder="Veuillez choisir l'offre", options=[SelectOption(label="Web", value="web_info", emoji="🌐"), SelectOption(label="Minecraft", value="minecraft_info", emoji="🎮"), SelectOption(label="Discord Bot", value="discord_info", emoji="💻"), SelectOption(label="VPS", value="vps_info", emoji=bot.get_emoji(903249150991298582))], custom_id="select_info_etape_2",)],)
-            interaction = await bot.wait_for(
-                "select_option", check=lambda inter: inter.custom_id == "select_info_etape_2"
-            )
-            if ((f"{interaction.values[0]}") == "web_info"):
-                created_em = discord.Embed(title="Résumé du ticket", description="Information : Web Hosting", color=0x00a8ff)
-            elif ((f"{interaction.values[0]}") == "minecraft_info"):
-                created_em = discord.Embed(title="Résumé du ticket", description="Information : Minecraft Serveur", color=0x00a8ff)
-            elif ((f"{interaction.values[0]}") == "discord_info"):
-                created_em = discord.Embed(title="Résumé du ticket", description="Information : Discord Serveur", color=0x00a8ff)
-            elif ((f"{interaction.values[0]}") == "vps_info"):
-                created_em = discord.Embed(title="Résumé du ticket", description="Information : VPS", color=0x00a8ff)
-            await ticket_channel.send(embed=created_em)
         else:
             await interaction.respond("Une erreur est survenue...")
 
